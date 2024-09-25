@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deteksi Penyakit Tumbuhan</title>
+    <meta property="og:title" content="Mendeteksi Penyakit Pada Tumbuhan">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="icon" href="{{ url_for('static', filename='favicon.png') }}" type="image/png">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='logoutama.png') }}" type="image/png">
+    <style>
+        .header-menu {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            background-color: #010b1a;
+        }
+        .header-menu a {
+            color: white;
+            padding: 10px;
+            text-decoration: none;
+            transition: background-color 0.3s ease, transform 0.3 ease;
+            border-radius: 5px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .header-menu .menu-toggle {
+            display: none;
+            cursor: pointer;
+            font-size: 24px;
+            color: white;
+            background: none;
+            border: none;
+            outline: none;
+        }
+        .header-menu .menu-items {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+            width: 80%;
+        }
+        .button-group-home {
+            margin-top: 20px;
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+        }
+        .button1 {
+            padding: 15px 42px;
+            font-size: 18px;
+            font-weight: bold;
+            text-decoration: none;
+            color: white;
+            background-color: #a0cbfa;
+            display: inline-block;
+            margin: 70px 0;
+        }
+
+        .button1:hover {
+            background-color: transparent;
+            border: 2px solid white;
+        }
+        .button2 {
+            padding: 15px 35px;
+            font-size: 18px;
+            font-weight: bold;
+            text-decoration: none;
+            color: white;
+            border: 2px solid white;
+            background-color: transparent;
+            display: inline-block;
+            margin: 70px 0;
+        }
+
+        .button2:hover {
+            background-color: #a0cbfa;
+        }
+        @media (max-width: 768px) {
+            .header-menu {
+                padding: 5px;
+            }
+            .header-menu .menu-items {
+                display: none;
+                flex-direction: column;
+                align-items: center;
+                width: 100%;
+            }
+            .header-menu .menu-toggle {
+                display: block;
+            }
+        }
+        .header-menu .menu-items.show {
+            display: flex;
+        }
+        .logo img {
+        max-width: 100%;
+        height: auto;
+        max-height: 35px;
+        }
+
+        #home, #aitool, #about, #trainer, #donasi, #contact {
+            scroll-margin-top: 80px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header-menu">
+        <div class="logo">
+        <img src="{{ url_for('static', filename='favicon.png') }}" alt="Logo">
+        </div>
+        <button class="menu-toggle">&#9776;</button>
+        <div class="menu-items">
+            <a href="#home" data-target="home">Home</a>
+            <a href="#aitool" data-target="aitool">Tool</a>
+            <a href="#about" data-target="about">About</a>
+            <a href="#trainer" data-target="trainer">Trainer</a>
+            <a href="#donasi" data-target="donasi">Donation</a>
+            <a href="#contact" data-target="contact">Contact</a>
+        </div>
+    </div>
+    <div id="home" class="container-home">
+        <img src="{{ url_for('static', filename='logoutama.png') }}" class="center-img">
+        <h2 class="sitani-cloud">ARTIFICIAL INTELLIGENCE | SMART FARMING | DEEP LEARNING | FULL STACK DEVELOPER</h2>
+        <h2 class="sitani">SITANI.CLOUD</h2>
+        <div class="button-group-home">
+            <a href="#aitool" class="button1">AI Tool</a>
+            <a href="#about" class="button2">About Us</a>
+        </div>
+    </div>
+    <div id="aitool" class="container-aitool">
+        <h1 style="margin-bottom: -4px;">DETEKSI PENYAKIT TUMBUHAN</h1>
+        <p style="color: red;text-align: center; margin-top: 0;">*identifikasi gejala melalui daun</p>
+        <div class="button-group">
+            <label for="fileInput" class="custom-file-upload">Unggah</label>
+            <input type="file" id="fileInput">
+            <button id="predictButton">Proses</button>
+        </div>
+        <div  id="predictionResult">
+            <p style='text-align: center;' id="predictionText"></p>
+            <img id="uploadedImage" src="" alt="">
+            <p style='text-align: justify;' id="dictionText"></p>
+        </div>
+        <div id="errorMessage"></div>
+    </div>
+    <div id="about" class="container-about">
+        <h2 style="text-align: right;">About Us</h2>
+        <p>Sitani.cloud adalah penyedia solusi inovatif dalam dunia pertanian cerdas, dengan fokus pada pemanfaatan kecerdasan buatan (AI) dan teknologi deep learning untuk mendeteksi penyakit pada tanaman melalu gejala pada daun secara presisi serta memberikan solusi penangan
+        <p><b>Dataset saat ini adalah Tanaman Anggur, Apel, Blueberry, Ceri, Jagung, Jeruk, Kedelai, Kentang, labu, lada, persik, Raspberry, Strawberry, dan Tomat.</b></p>
+        <p>Transfer Learning setiap batch untuk meningkatkan literasi dan akurasi. AI Sitani selalu berusaha berada di garis depan dalam mendukung pertanian cerdas dan <b>berkelanjutan</b> untuk hasil panen yang lebih baik bagi para petani</p>
+    </div>
+    <div id="trainer" class="container">
+    <h2 style="text-align: right;">Trainer</h2>
+    <p>Bergabunglah dengan kami sebagai relawan trainer AI dalam pengelompokan penyakit tanaman. Kontribusimu akan membawa perubahan positif dalam teknologi masa depan.</p>
+    <form id="uploadForm" action="/unggah" method="post" enctype="multipart/form-data">
+        <label for="fname">Nama Tumbuhan:</label>
+        <input type="text" id="fname" name="fname" required><br><br>
+        <label for="lname">Nama Penyakit:</label>
+        <input type="text" id="lname" name="lname" required><br><br>
+
+
+        <label for="imageInput" class="custom-file-trainer">
+            Pilih file gambar (maks 1MB)
+        </label>
+        <input type="file" id="imageInput" name="image" accept="image/*" style="display:flex;">
+        <br><br>
+
+
+        <img id="uploadedtrainer" style="display:none; max-width: 200px; max-height: 200px;" alt="Pratinjau Gambar">
+        <br><br>
+        <div id="errorMessagetrainer" style="color: red; display: none;"></div>
+        <br><br>
+
+        <input type="submit" id="submitButton" value="Kirim">
+    </form>
+    <div id="messageContainer" class="message" style="display:none;"></div>
+    </div>
+    <div id="donasi" class="container">
+        <h2 style="text-align: right;">Donasi</h2>
+        <p>Anda dapat membantu mendukung penelitian dan pengembangan lebih lanjut dengan melakukan donasi. Setiap kontribusi akan sangat berarti bagi kami dan para petani yang kami bantu.</p>
+        <img src="{{ url_for('static', filename='qris.png') }}" alt="Logo">
+    </div>
+    <div id="contact" class="container">
+        <h2 style="text-align: right;">Contact Us</h2>
+        <p>Jangan ragu untuk menghubungi kami terkait hal apapun</p>
+        <ul>
+            <li>Email: juniorbayu96@gmail.com</li>
+            <li>Telepon: +6287 853 847 272</li>
+        </ul>
+    </div>
+
+    <script src="https://unpkg.com/image-compressor/dist/image-compressor.min.js"></script>
+    <script>
+
+        function showUploadedImage(file) {
+            var uploadedImage = document.getElementById('uploadedImage');
+            uploadedImage.src = URL.createObjectURL(file);
+            uploadedImage.style.display = 'block';
+        }
+
+
+        document.getElementById('fileInput').addEventListener('change', function(event) {
+            var file = event.target.files[0];
+            if (file) {
+
+                var maxSize = 1048576;
+                var errorMessage = document.getElementById('errorMessage');
+                if (file.size > maxSize) {
+                    errorMessage.textContent = "Maksimal ukuran file 1 MB.";
+                    errorMessage.style.display = 'block';
+                    this.value = '';
+                    return;
+                } else {
+                    errorMessage.style.display = 'none';
+                }
+
+                showUploadedImage(file);
+
+
+                var fileLabel = document.querySelector('.custom-file-upload');
+                fileLabel.textContent = file.name ? file.name : 'Unggah';
+
+
+                var donationImage = document.getElementById('donationImage');
+                donationImage.style.display = 'none';
+
+
+                var predictionText = document.getElementById('predictionText');
+                predictionText.innerText = '';
+
+
+                document.getElementById('predictButton').disabled = false;
+            }
+        });
+
+
+        document.getElementById('predictButton').addEventListener('click', function() {
+            var fileInput = document.getElementById('fileInput');
+            var file = fileInput.files[0];
+            if (!file) {
+                var errorMessage = document.getElementById('errorMessage');
+                errorMessage.textContent = "Mohon unggah gambar terlebih dahulu.";
+                errorMessage.style.display = 'block';
+                return;
+            }
+            var formData = new FormData();
+            formData.append('file', file);
+
+            fetch('/predict', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                var predictionText = document.getElementById('predictionText');
+                if (data.error) {
+                    predictionText.innerText = 'Error: ' + data.error;
+                } else {
+                    var predictionResult = 'Hasil Analisa: ' + data.description ;
+                    if (data.additional_class_description && Object.keys(data.additional_class_description).length > 0) {
+                        predictionResult += '<br>';
+                        var additionalDescriptions = [];
+                        for (var key in data.additional_class_description) {
+                            additionalDescriptions.push(data.additional_class_description[key]);
+                        }
+
+                    }
+                    predictionText.innerHTML = predictionResult;
+                    dictionText.innerHTML = additionalDescriptions.join(', ');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Terjadi kesalahan saat memproses permintaan.');
+            });
+        });
+
+
+        document.querySelectorAll('.header-menu a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+
+                const targetId = this.getAttribute('data-target');
+                const targetElement = document.getElementById(targetId);
+
+                const headerOffset = document.querySelector('.header-menu').offsetHeight;
+                const elementPosition = targetElement.getBoundingClientRect().top;
+                const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+
+        document.querySelector('.menu-toggle').addEventListener('click', function() {
+            document.querySelector('.menu-items').classList.toggle('show');
+        });
+
+
+        document.querySelectorAll('.menu-items a').forEach(item => {
+            item.addEventListener('click', function() {
+                document.querySelector('.menu-items').classList.remove('show');
+            });
+        });
+
+
+        document.getElementById('uploadForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            var form = event.target;
+            var formData = new FormData(form);
+
+            fetch('/unggah', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                var messageContainer = document.getElementById('messageContainer');
+                messageContainer.innerHTML = data.message;
+                messageContainer.style.display = 'block';
+
+                if (data.filename) {
+                    messageContainer.classList.add('success');
+                } else {
+                    messageContainer.classList.add('error');
+                }
+            })
+            .catch(error => {
+                var messageContainer = document.getElementById('messageContainer');
+                messageContainer.innerHTML = 'Error uploading file';
+                messageContainer.classList.add('error');
+                messageContainer.style.display = 'block';
+            });
+        });
+
+
+        document.getElementById('imageInput').addEventListener('change', function(event) {
+            var file = event.target.files[0];
+            if (file) {
+
+                var maxSize = 1048576;
+                var errorMessage = document.getElementById('errorMessagetrainer');
+                if (file.size > maxSize) {
+                    errorMessage.textContent = "Maksimal ukuran file 1 MB.";
+                    errorMessage.style.display = 'block';
+                    this.value = '';
+                    return;
+                } else {
+                    errorMessage.style.display = 'none';
+                }
+
+
+                var uploadedtrainer = document.getElementById('uploadedtrainer');
+                uploadedtrainer.src = URL.createObjectURL(file);
+                uploadedtrainer.style.display = 'block';
+
+
+        });
+    </script>
+
+</body>
+</html>

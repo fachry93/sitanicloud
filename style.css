@@ -1,0 +1,381 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: 'Times New Roman':
+    background-color: red;
+    color: black;
+    padding-top: 15px;
+}
+
+.container {
+    width: 80%;
+    margin: 50px auto;
+    padding: 30px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+    margin-bottom: 100px;
+}
+
+.container-about {
+    width: 80%;
+    margin: 100px auto;
+    padding: 30px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+    margin-bottom: 100px;
+}
+
+.container-home, .container-aitool {
+    width: 80%;
+    margin: 0px auto;
+    padding: 30px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+}
+
+.container-home {
+    width: 95.5%;
+    height: 550px;
+    background-image: url('1.png');
+    background-size: cover;
+    background-position: center;
+    animation: changeBackground 10s infinite;
+    text-align: center;
+
+}
+
+@keyframes changeBackground {
+    0% {
+        background-image: url('1.png');
+    }
+    50% {
+        background-image: url('2.png');
+    }
+    100% {
+        background-image: url('1.png');
+    }
+}
+
+.center-img {
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+    height: auto;
+    margin-top: 50px;
+    margin-bottom: 20px;
+}
+
+.sitani-cloud {
+    text-align: center;
+    font-size: 1.5em;
+    text-decoration: none;
+    text-underline-offset: 20px;
+    margin: 20px 0;
+}
+
+.sitani {
+    text-align: center;
+    font-size: 3em;
+    text-decoration: underline;
+    text-underline-offset: 20px;
+    margin: 20px 0;
+}
+
+.container-aitool {
+    margin-top: 0;
+    width: 79%;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+button#predictButton {
+    display: inline-block;
+    background-color: #057afa;
+    color: #ffffff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1em;
+}
+
+button#predictButton:hover {
+    background-color: #218838;
+}
+
+#uploadedImage {
+    max-width: 100%;
+    max-height: 200px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    padding: 10px 0;
+}
+
+h1 {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+    color: #000000;
+    text-align: center;
+}
+
+input[type="file"] {
+    display: none;
+}
+
+.custom-file-upload {
+    display: inline-block;
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin: 0;
+}
+
+.custom-file-upload:hover {
+    background-color: #45a049;
+}
+
+.button-group {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    gap: 10px;
+}
+
+#predictionResult {
+    margin-top: 20px;
+    font-size: 1em;
+    color: #000000;
+}
+
+.donation-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+#donationImage {
+    max-width: 100%;
+    display: none;
+}
+
+.header-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #f1f1f1;
+    padding: 10px 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.header-menu a {
+    text-decoration: none;
+    color: #333;
+    padding: 0 15px;
+    font-weight: bold;
+}
+
+.header-menu a:hover {
+    color: #007bff;
+}
+
+#navDemo {
+    display: none;
+}
+
+#about, #donasi, #contact, #trainer{
+    background-color: #f9f9f9;
+    padding: 20px;
+}
+
+#about h2, #donasi h2, #contact h2, #trainer h2 {
+    color: #333;
+    margin-bottom: 10px;
+}
+
+#about p, #donasi p, #contact p, #trainer p {
+    line-height: 1.6;
+    color: #666;
+}
+
+#donasi img {
+    display: block;
+    margin: 0 auto;
+}
+
+#contact ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+#contact li {
+    margin-bottom: 30px;
+    color: #333;
+}
+
+#errorMessage {
+    color: red;
+    display: none;
+    margin-top: 10px;
+}
+
+button {
+    display: inline-block;
+    background-color: blue;
+    color: #ffffff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #218838;
+}
+
+    form {
+      max-width: 600px;
+      margin: auto;
+      background: #227DCD;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: bold;
+      color : black;
+    }
+    input[type="text"], input[type="file"], input[type="submit"] {
+      width: calc(100% - 16px);
+      padding: 8px;
+      margin-bottom: 12px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+      font-size: 14px;
+    }
+    input[type="submit"] {
+      background-color: #057afa;
+      color: white;
+      cursor: pointer;
+    }
+    input[type="submit"]:hover {
+      background-color: #45a049;
+      color:white;
+    }
+    .message {
+      padding: 12px;
+      margin-bottom: 12px;
+      border-radius: 4px;
+    }
+    .success {
+      background-color: #d4edda;
+      color: #155724;
+    }
+    .error {
+      background-color: #f8d7da;
+      color: #721c24;
+    }
+
+    .custom-file-input {
+      display: inline-block;
+      width: calc(100% - 16px);
+      padding: 8px;
+      margin-bottom: 12px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+      font-size: 14px;
+      color: gray;
+      font-style: italic;
+      background-color: #fff;
+      cursor: pointer;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    .custom-file-input::file-selector-button {
+      background: #4CAF50;
+      color: white;
+      border: none;
+      padding: 8px 12px;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+@media screen and (max-width: 600px) {
+    .container-home {
+        border: none;
+        box-shadow: none;
+        height: 600px;
+    }
+    .container {
+        width: 90%;
+        padding: 20px;
+        margin: 20px auto;
+    }
+    .container-home, .container-aitool {
+        width: 90%;
+        padding: 20px;
+        border: none;
+        box-shadow: none;
+    }
+    .container-about {
+        width: 90%;
+        padding: 20px;
+        margin: 20px auto;
+    }
+    .header-menu a {
+        padding: 10px 2px;
+        width: 70%;
+        text-align: center;
+    }
+
+    .header-menu a.icon {
+        display: block;
+    }
+
+    .sitani-cloud {
+        font-size: 1em;
+        text-decoration: none;
+        text-underline-offset: 0px;
+    }
+
+    .sitani {
+        font-size: 2em;
+        text-underline-offset: 10px;
+    }
+    .center-img {
+        margin-top: 50px;
+        margin-bottom: 10px;
+        max-width: 80%;
+    }
+
+    h1 {
+        font-size: 21px;
+        margin-bottom: -4px;
+
+@media screen and (min-width: 601px) and (max-width: 1024px) {
+    .container {
+        width: 70%;
+    }
+}
